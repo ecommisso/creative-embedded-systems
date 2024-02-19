@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 1 Project</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="module1.html">Module 1 Project</a></li>
+        </ul>
+    </nav>
+
+    <div id="rainContainer"></div>
+
+    <div class="content">
+
+        <h1>Module 1 Project</h1>
+
+        <!-- <div class="poem">
+            <blockquote>
+                <p>See, the rain is nice but</p>
+                <p>I-I don't really like getting wet</p>
+                <p>Wha-</p>
+                <p>What in the world</p>
+                <p>No I-</p>
+                <p>I went under the awning</p>
+                <p>It's-it's still raining</p>
+                <p>Why is it still raining</p>
+                <p>I did what I was supposed to</p>
+                <p>That's not fair</p>
+                <footer>- Jack Stauber</footer>
+            </blockquote>
+        </div> -->
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/QUynbsIsYs8" frameborder="0" allowfullscreen></iframe>
+
+        <h2>Inspiration:</h2>
+        <p>
+            In designing this project, I wanted to do something with flashing text, inspired by the creative English subtitle design of the following video: 
+        </p>
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/1cqqGOvOGfI" frameborder="0" allowfullscreen></iframe>
+        <p>
+            I originally was going to use the lyrics of that song, but I was thinking about how much it had been raining in New York for the past couple weeks and how I had some melancholy feeling floating over me. An audio popped into my head: “It's raining…Why is it still raining?”, but I had never heard it outside of the context of TikTok videos. I searched for the clip, and I discovered that the original audio is a poem and accompanying instrumental made by Jack Stauber, one of my favorite artists. I resonated with the sentiment, so I chose this piece.  See the video below:
+        </p>
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/osxJ5-_Ccp0" frameborder="0" allowfullscreen></iframe>
+        
+        <h2>Installation Process </h2>
+        <p>
+            To prepare the device for installation, I flashed the following code for the TTGO T1 display to my ESP32 device by running it on the Arduino IDE and connected the device to my computer using a USB-C cable. <a href="https://github.com/ecommisso/esp32-stauber-rain">GitHub Code</a>
+        </p>
+
+        <p>
+            We tied a string around a popsicle stick with a hole punched in it so that we could suspend the device from the rafters in Milstein floor 5 in Barnard, where the installation was held.
+        </p>
+
+        <p>
+            To power the devices, we connected them to 130 mAh batteries, which we expected to last under 2 hours if running the display at full power. We needed attachment connectors, which were crimped and soldered, to directly connect the battery and the device. To insulate the crimping, we added heat shrink to the connector, so we could safely plug it into the battery. We plugged in the adapter to the ESP32 and could successfully power it on. 
+        </p>
+
+        <p>
+            We then obscured the hardware of the device by placing the battery and ESP32 in an envelope with a hole cut out, so that only the TTGO display would be visible. I drew on the envelope as well, to draw the man from Stauber's video, the awning, and rain underneath, in order to match the content of the poem. 
+        </p>
+
+        <p>
+            Finally, I got on a stool and suspended the device from the rafter. The wind blowing effect of the rain was well matched to the environment, since the device blew from the current of the air conditioning, making it spin as it dangled. 
+        </p>
+
+        <h2>Artistic Choices</h2>
+
+        <p>
+            I experimented with different raining effects, like having text move down letter by letter to appear as if it is cascading, versus having randomly generated lines to fall vertically down to look like gentle rain, versus finally, the pouring in the wind effect, created by randomly drawing and incrementally clearing diagonal lines. I actually stumbled across the last design by accident when deciding how I wanted to create the rain, when I was trying to clear the lines before drawing them again, but I noticed how I could clear the line incrementally to create the “dotted” effect that makes it appear like how the human eye visualizes fast rain, as moving diagonal lines. These approaches were generative, with my final choice possessing randomness in how the position of the rain lines were initialized and reinitialized at the top of the screen, as well as using the computational power of the ESP32 to calculate the increases in length and clear certain regions of the lines for the dotted effect.  
+        </p>
+
+        <p>
+            A difficult part about this process was trying to get the flashing text to display on the screen in the foreground while the rain kept falling in the background. When testing, how I was able to make the flash display was by writing text to the screen then clearing the whole screen, which would interrupt the rain in the background. With the cascading text, the rain behind it would also be erased, since the letters were continually cleared to move lower, so the rain under those letters would also be cleared.
+        </p>
+
+        <p>
+            Finally, I found a way to display the pouring rain with the text printing without clearing the whole screen, but by adding a delay and moving the pointer so the text prints each line increasingly lower on the screen, like a slow fall. The text doesn't “flash” anymore, i.e. clear the text and delay the next line, but rather will print the next line on a lower level as soon as the previous line disappears. Once the text reaches the end of the poem, the cursor resets so it will restart and print the lines from the top again. The delay increases incrementally, so the lines fall a little slower, which I think gives the effect of exhaustion; of not knowing what to do anymore; of feeling powerless that you cannot control the world around you, even if you do everything correctly -- as you were “supposed to”. Ultimately, this reflects my interpretation of Stauber's original video. The text does not exactly match the rate at which the audio is narrated in Stauber's clip, but I adjusted it to be at a pace that was good for interacting with and reading. I also chose the small font because I wanted people to get up close and intimate with the exhibit. 
+        </p>
+
+        <p>
+            The rain in the background still also has some moments where it appears that it is moving upwards, but I think the visual effect is like an optical illusion of speed, where the rain is coming down too fast, that it's hard to determine if it's actually falling or rising. 
+        </p>
+
+        <p>
+            To conserve the battery life a little longer, I worked with dimming the display; however, I was testing this in dark spaces, so my original choice of 50 (out of 255 for total brightness) of the LED pins was too dim in the bright environment of Milstein floor 5, due to being right behind so many windows before sunset. For this reason, I adapted the dimness to be 150, which I thought was more visible in the daylight. I also allowed the device to die once the battery power ran out as an expression for exhaustion after relentless attempts to get out of the rain.
+        </p>
+    </div>
+
+    <script src="rain.js"></script>
+</body>
+</html>
