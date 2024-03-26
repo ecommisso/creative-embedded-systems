@@ -86,3 +86,11 @@ blockquote {
         transform: translateY(100vh);
     }
 }
+
+.image-container {
+    text-align: center;
+}
+
+.image-container img {
+    max-width: 300px;
+}
