@@ -24,8 +24,8 @@
         <p>
             My inspiration for the project derived from the hardware I received, which was a big button and a potentiometer. I wanted to design some sort of game device since I thought that a button and a knob would be a perfect fit for a controller to an arcade or handheld game. I really like digital rhythm games, so I was considering making a traditional beat matching game, but then I remembered “Bop It” from my childhood. I really liked both the audio and physical experience of the game, so I thought I could make a limited scope version of “Bop It” with just the “Bop It” and “Twist It” options to match the hardware I had. 
         </p>
-        <div class="image-container">
-            <img src="images/bopit.png" alt="Bop It Device">
+        <div style="text-align: center;">
+            <img src="images/bopit.png" alt="Bop It Device" style="max-width: 300px;">
         </div>
         
         <h2>Installation Process </h2>
@@ -33,9 +33,9 @@
             To begin the process of building the device, I had to solder pins onto the esp32, in order to wire other electrical components to it, using a breadboard, for example. I also soldered the pins of the button with wires so it could also connect to the breadboard. I used relatively long wires so I also had more freedom with how I wanted to place my button in the enclosure that I would eventually design. My soldering iron was not quite hot enough when soldering the pins on the esp32 and the button, so the solder came out clumpy and thick. While I was not yet able to fix the esp32 solder (perhaps by using desolder, or just using a hotter iron to melt the existing solder down more), I used heat shrink on the button to conceal the connection on the button, which also is important for insulating the live and ground wires to prevent any damage to the circuit and components if they would touch. 
         </p>
 
-        <div class="image-container">
-            <img src="images/button_solder.png" alt="Button Solder">
-            <img src="images/button_heatshrink.png" alt="Button Heat Shrink">
+        <div style="text-align: center;">
+            <img src="images/button_solder.png" alt="Button Solder" style="max-width: 300px;">
+            <img src="images/button_heatshrink.png" alt="Button Heat Shrink" style="max-width: 300px;">
         </div>
 
 
@@ -49,8 +49,8 @@
             The wiring took a lot of trial and error, since some rows on the breadboard weren’t working properly and couldn’t establish a connection between the wires. I think the clumpy soldering of the esp32 also blended the connections between a few of the adjacent pins together, which may have also contributed to the difficulty in finding working connections for the wires. I eventually found an initial configuration where I could run the sample code from the esp32 documentation for the button and then the potentiometer individually, ensuring that the serial signals were being read from the device to my computer.
         </p>
 
-        <div class="image-container">
-            <img src="images/init_wiring.png" alt="Initial Wiring">
+        <div style="text-align: center;">
+            <img src="images/init_wiring.png" alt="Initial Wiring" style="max-width: 300px;">
         </div>
 
 
@@ -62,25 +62,25 @@
             In considering how I wanted to build my enclosure, I moved the placements of my components to the other side of the breadboard, allowing for easier access to plug in the esp32 to my computer. I was gifted a very cute box for a duck lamp, and it perfectly fit my breadboard inside of it, so I wanted to use that for my “bop it” mimic device. 
         </p>
 
-        <div class="image-container">
-            <img src="images/second_wiring.png" alt="Second Wiring">
-            <img src="images/init_taping.png" alt="Initial Taping">
+        <div style="text-align: center;">
+            <img src="images/second_wiring.png" alt="Second Wiring" style="max-width: 300px;">
+            <img src="images/init_taping.png" alt="Initial Taping" style="max-width: 300px;">
         </div>
 
         <p>
             As I was taping the box to secure the cardboard, I realized that it would be difficult to use the potentiometer since the pins were so short and the breadboard would also have to be exposed if I were to put it in an enclosure, so I decided to solder (and heat shrink) extension wires to the pins. This time, I made sure my soldering iron was hot enough, so it worked much better and easier for me. 
         </p>
 
-        <div class="image-container">
-            <img src="images/pot_solder.png" alt="Potentiometer Soldering">
+        <div style="text-align: center;">
+            <img src="images/pot_solder.png" alt="Potentiometer Soldering" style="max-width: 300px;">
         </div>
 
         <p>
             Finally, I cut out holes for the cord, potentiometer, and button in the box, inserted my device, and secured all the components with tape. 
         </p>
 
-        <div class="image-container">
-            <img src="images/final_wiring.png" alt="Final Wiring">
+        <div style="text-align: center;">
+            <img src="images/final_wiring.png" alt="Final Wiring" style="max-width: 300px;">
         </div>
 
 
@@ -89,13 +89,13 @@
         <p>
             After I built my device, I realized that I was missing a great branding opportunity that the box design was giving me: ducks! I used my box because I thought it was cute, but it wasn’t really related to “Bop it” in any way, so I decided to redesign the theme of my game to “Honk It”, using a duck quack as the sound effect for the button press. I also picked yellows and oranges as the styling for the site to match duck bill and feet colors. It is still a “Bop It” knock-off, but I think this added an extra special touch to the device to tie it all together with the design.         
         </p>
-        <div class="image-container">
-            <img src="images/honk34.jpeg" alt="Honk It">
-            <img src="images/honktop.jpeg" alt="Honk It">
+        <div style="text-align: center;">
+            <img src="images/honk34.jpeg" alt="Honk It" style="max-width: 300px;">
+            <img src="images/honktop.jpeg" alt="Honk It" style="max-width: 300px;">
         </div>
-        <div class="image-container">
-            <img src="images/honkback.jpeg" alt="Honk It">
-            <img src="images/honkback34.jpeg" alt="Honk It">
+        <div style="text-align: center;">
+            <img src="images/honkback.jpeg" alt="Honk It" style="max-width: 300px;">
+            <img src="images/honkback34.jpeg" alt="Honk It" style="max-width: 300px;">
         </div>
 
         <h2>Game Code</h2>
@@ -104,14 +104,14 @@
             To implement the logic of “Honk It”, I wrote the game code in javascript to parse the data read from the serial connection between my device and computer and made a website to accompany my device. The website page served as the instructions/commands for what to do next in the game. Once the serial connection was established between the device and the webpage, the user could enter the game and be timed to perform the given action: either “Honk It” to press the button, or “Twist It” to turn the potentiometer knob. If they did not perform the correct action within 3 seconds, then they would be directed to the lose screen, where they could restart and try again. Each command is generated randomly, and while testing the game, it felt hard to notice if I was doing each action correctly when the command was repeated, since it kept displaying the same text, so I added in audio cues each new time a command was generated. I also added a losing sound effect, which I thought added to the frustration of the game if the user kept hearing the losing violin song over and over! See code here: <a href="https://github.com/ecommisso/honk-it.git">GitHub Code</a>.
         </p>
 
-        <div class="image-container">
-            <img src="images/bopit_index.png" alt="Honk It">
-            <img src="images/bopit_connect.png" alt="Honk It">
-            <img src="images/bopit_connected.png" alt="Honk It">
+        <div style="text-align: center;">
+            <img src="images/bopit_index.png" alt="Honk It" style="max-width: 300px;">
+            <img src="images/bopit_connect.png" alt="Honk It" style="max-width: 300px;"x>
+            <img src="images/bopit_connected.png" alt="Honk It" style="max-width: 300px;">
         </div>
-        <div class="image-container">
-            <img src="images/bopit_twist.png" alt="Honk It">
-            <img src="images/bopit_lose.png" alt="Honk It">
+        <div style="text-align: center;">
+            <img src="images/bopit_twist.png" alt="Honk It" style="max-width: 300px;">
+            <img src="images/bopit_lose.png" alt="Honk It" style="max-width: 300px;">
         </div>
 
 
