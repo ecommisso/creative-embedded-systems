@@ -94,3 +94,66 @@ blockquote {
 .image-container img {
     max-width: 300px;
 }
+
+.project-container {
+    text-align: center; /* Center the project blocks */
+}
+
+.project-block {
+    width: 200px; /* Adjust width as needed */
+    height: auto; /* Let the height adjust according to content */
+    background-color: #f0f0f0; /* Background color of the blocks */
+    border: 1px solid #ccc; /* Border color and thickness */
+    margin: 10px auto; /* Center the blocks horizontally with auto margin */
+    display: inline-block;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.project-block img {
+    max-width: 100%; /* Ensure images don't exceed block width */
+    max-height: 100%; /* Ensure images don't exceed block height */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 10px; /* Add some space below the image */
+}
+
+.project-block a {
+    text-decoration: none;
+    color: #333; /* Link color */
+    display: block; /* Make the entire block clickable */
+}
+
+.carousel-container {
+    width: 560px;
+    overflow: hidden;
+    position: relative;
+    margin: 20px auto;
+}
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.carousel img {
+    width: 100%;
+    height: auto;
+}
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 24px;
+    z-index: 2;
+    color: #333;
+}
+.prev-btn {
+    left: 10px;
+}
+.next-btn {
+    right: 10px;
+}
